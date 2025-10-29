@@ -16,19 +16,24 @@
     <style>
         /* Custom Color Palette */
         .color-primary-dark { background-color: #093411; }
-        .color-primary-text { color: #eeeeee; }
-        .color-secondary-dark { background-color: #38761d; }
+        .color-primary-text { color: #AEF250; }
+        .color-secondary-dark { background-color: #287E28; }
         .color-secondary-light { background-color: #C1E88B; }
         .color-button { background-color: #AEF250; color: #093411; }
         .color-button:hover { background-color: #C1E88B; }
         .color-accent { color: #AEF250; }
         .color-accent-dark { color: #093411; }
-        .color-text-light { color: #ffffff; }
+        .color-text-light { color: #EEEEEE; } /* Using #EEEEEE for all text on dark backgrounds */
+
+        /* Contrast Fix: Using #EEEEEE for all text on dark backgrounds */
+        .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700 { color: #EEEEEE !important; } 
         
-        /* Contrast Fix: Replacing #5D5D5D which was used for general gray text (text-gray-500) */
-        /* We will use a brighter, more readable gray for general text */
-        .text-gray-400 { color: #C1E88B; } /* Using a light green from the palette for better contrast */
-        .text-gray-500 { color: #EEEEEE; } /* Using the very light gray for better contrast */
+        /* New Light Backgrounds: Light Gray (#F3F4F6) */
+        .bg-light-gray { background-color: #F3F4F6; }
+        /* Text on Light Backgrounds: Dark Green (#093411) for perfect contrast */
+        .text-dark-contrast { color: #093411; } 
+        .border-dark-contrast { border-color: #093411; } 
+        .text-light-contrast { color: #4B5563; } /* A slightly darker gray for secondary text on light bg */
 
         /* Mouse Flow Effect Container */
         .mouse-flow-container {
@@ -93,6 +98,17 @@
             z-index: 40;
             background-color: #287E28;
         }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="color-primary-dark min-h-screen mouse-flow-container" id="body-container">
@@ -106,7 +122,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2">
                     <!-- Logo Integration -->
-                    <img src="IMG_3739.PNG" alt="Metida Group Logo" class="h-40 w-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x40/093411/AEF250?text=METIDA+GROUP+LOGO';" />
+                    <img src="IMG_3739.PNG" alt="Metida Group Logo" class="h-10 w-auto" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x40/093411/AEF250?text=METIDA+GROUP+LOGO';" />
                     <span class="text-xl font-bold color-text-light hidden sm:inline">METIDA GROUP</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
@@ -136,19 +152,19 @@
         </div>
     </nav>
 
-    <!-- Hero Section - SEO Optimized -->
+    <!-- Hero Section - Dark Green -->
     <section class="color-secondary-dark text-white py-12 sm:py-16 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 color-accent">
-                    Leading AIFC Law Firm in Kazakhstan
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 color-accent fade-in-up">
+                    Leading AIFC Law Firm Kazakhstan
                 </h1>
-                <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 color-text-light max-w-4xl mx-auto">
-                    Metida Group LLP is an ANCILLARY SERVICE PROVIDER under the AIFC Laws, rendering Legal and Accountancy Services. We assist and support our clients in developing their businesses rapidly and successfully.
+                <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 color-text-light max-w-4xl mx-auto fade-in-up">
+                    Metida Group LLP is an ANCILLARY SERVICE PROVIDER under the AIFC Laws rendering Legal and Accountancy Services. We assist and support our clients in developing their businesses rapidly and successfully.
                 </p>
                 
                 <!-- Trust Indicators -->
-                <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-6 md:mb-8">
+                <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-6 md:mb-8 fade-in-up">
                     <div class="bg-white/10 backdrop-blur-sm px-3 py-1 sm:px-4 sm:py-2 rounded-lg flex items-center space-x-2">
                         <i data-lucide="award" class="h-4 w-4 sm:h-5 sm:w-5 color-accent"></i>
                         <span class="text-xs sm:text-sm font-medium color-text-light">AIFC Licensed</span>
@@ -163,7 +179,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up">
                     <a href="#contact" class="color-button text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-colors flex items-center justify-center font-semibold">
                         <i data-lucide="phone" class="mr-2 h-5 w-5 color-accent-dark"></i>
                         Book Free Consultation
@@ -177,90 +193,90 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-12 sm:py-16 color-primary-dark">
+    <!-- Services Section - Light Gray Background -->
+    <section id="services" class="py-12 sm:py-16 bg-light-gray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">LEGAL SERVICES</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold text-dark-contrast mb-3 sm:mb-4 fade-in-up">LEGAL SERVICES</h2>
+                <p class="text-lg sm:text-xl text-light-contrast max-w-3xl mx-auto fade-in-up">
                     We offer a full spectrum of legal services, from corporate and commercial law to specialized tax and intellectual property matters.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Corporate Law -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="briefcase" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Corporate Law</h3>
+                        <i data-lucide="briefcase" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Corporate Law</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Our practice has great experience working on international transactions, including IPO, complex M&A, private equity, and other critical corporate finance deals for leading companies.
                     </p>
                 </div>
 
                 <!-- Labor Law -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="users" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Labor Law</h3>
+                        <i data-lucide="users" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Labor Law</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         We help employers comply with the Labour Code, preventing costly violations, litigation with employees, and claims from governmental authorities.
                     </p>
                 </div>
 
                 <!-- Commercial Law -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="file-text" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Commercial Law</h3>
+                        <i data-lucide="file-text" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Commercial Law</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Dedicated experts assist in drafting optimal contracts, negotiating with contractors, and structuring transactional schemes to achieve commercial targets.
                     </p>
                 </div>
 
                 <!-- Tax Law -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="dollar-sign" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Tax Law</h3>
+                        <i data-lucide="dollar-sign" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Tax Law</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Unrivaled tax litigation experience. We advise on international and domestic taxation, risk minimization, tax optimization, VAT, customs & excise, and transfer pricing.
                     </p>
                 </div>
 
                 <!-- Environmental Law -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="leaf" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Environmental Law</h3>
+                        <i data-lucide="leaf" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Environmental Law</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Consultancy services to address environmental issues, including obtaining necessary permits, waste disposal, and advising on potential liability and sanctions.
                     </p>
                 </div>
 
                 <!-- Intellectual Property -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="lightbulb" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Intellectual Property</h3>
+                        <i data-lucide="lightbulb" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Intellectual Property</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Protection of client rights in IP, including trademarks, copyright, patents, and registration. One team member is a licensed patent attorney.
                     </p>
                 </div>
 
                 <!-- Litigation -->
-                <div class="color-secondary-dark border border-[#287E28] rounded-lg p-6 hover:shadow-xl transition-shadow lg:col-span-1 sm:col-span-2">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow lg:col-span-1 sm:col-span-2 fade-in-up">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i data-lucide="gavel" class="h-8 w-8 color-accent"></i>
-                        <h3 class="text-xl font-semibold color-text-light">Litigation</h3>
+                        <i data-lucide="gavel" class="h-8 w-8 color-accent-dark"></i>
+                        <h3 class="text-xl font-semibold text-dark-contrast">Litigation</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">
+                    <p class="text-light-contrast mb-4 text-sm">
                         Successfully represented clients at all levels of Kazakhstan’s judicial system and beyond. Our experienced team offers unmatched quality and local expertise for a competitive fee.
                     </p>
                 </div>
@@ -268,40 +284,40 @@
         </div>
     </section>
 
-    <!-- Tax and Transfer Pricing Services Section -->
+    <!-- Tax and Transfer Pricing Services Section - Dark Green -->
     <section class="py-12 sm:py-16 color-secondary-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">TAX AND TRANSFER PRICING SERVICES</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4 fade-in-up">TAX AND TRANSFER PRICING SERVICES</h2>
+                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto fade-in-up">
                     "Metida Group" Tax department has a team of practitioners used to work at the tax office with unrivaled tax litigation experience in Kazakhstan.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <!-- Tax Audit -->
-                <div class="color-primary-dark p-6 rounded-lg border border-[#394508]">
+                <div class="color-primary-dark p-6 rounded-lg border border-[#394508] fade-in-up">
                     <h3 class="text-lg font-semibold color-accent mb-2">Tax Audit</h3>
                     <p class="text-gray-400 text-sm">
                         Audit of tax obligations to verify the correctness of tax settlements, review declarations, and identify hidden tax obligations.
                     </p>
                 </div>
                 <!-- Tax Support -->
-                <div class="color-primary-dark p-6 rounded-lg border border-[#394508]">
+                <div class="color-primary-dark p-6 rounded-lg border border-[#394508] fade-in-up">
                     <h3 class="text-lg font-semibold color-accent mb-2">Tax Support</h3>
                     <p class="text-gray-400 text-sm">
                         Support during audits conducted by tax authorities, including document review and defending the client's position to eliminate fine risks.
                     </p>
                 </div>
                 <!-- Tax Consulting -->
-                <div class="color-primary-dark p-6 rounded-lg border border-[#394508]">
+                <div class="color-primary-dark p-6 rounded-lg border border-[#394508] fade-in-up">
                     <h3 class="text-lg font-semibold color-accent mb-2">Tax Consulting</h3>
                     <p class="text-gray-400 text-sm">
                         Advisory services with respect to key tax issues related to clients’ operations, leveraging extensive professional experience across all business sectors.
                     </p>
                 </div>
                 <!-- Tax Litigation -->
-                <div class="color-primary-dark p-6 rounded-lg border border-[#394508]">
+                <div class="color-primary-dark p-6 rounded-lg border border-[#394508] fade-in-up">
                     <h3 class="text-lg font-semibold color-accent mb-2">Tax Litigation</h3>
                     <p class="text-gray-400 text-sm">
                         Support in the settlement of tax disputes, analyzing tax audit acts, and preparing documentation for submission to tax authorities and judicial instances.
@@ -309,18 +325,18 @@
                 </div>
             </div>
             
-            <blockquote class="mt-10 p-6 border-l-4 border-[#AEF250] bg-[#093411] text-gray-400 italic max-w-4xl mx-auto">
+            <blockquote class="mt-10 p-6 border-l-4 border-[#AEF250] bg-[#093411] text-gray-400 italic max-w-4xl mx-auto fade-in-up">
                 <p class="text-lg">"Transparency in pricing builds trust, and we believe in providing you with clear, upfront costs for our services, ensuring peace of mind every step of the way."</p>
             </blockquote>
         </div>
     </section>
 
-    <!-- Fund Comparison Section -->
-    <section id="fund-comparison" class="py-12 sm:py-16 color-primary-dark">
+    <!-- Fund Comparison Section - Light Gray Background -->
+    <section id="fund-comparison" class="py-12 sm:py-16 bg-light-gray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">Investment Funds: Comparison of International Financial Centres</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold text-dark-contrast mb-3 sm:mb-4 fade-in-up">Investment Funds: Comparison of International Financial Centres</h2>
+                <p class="text-lg sm:text-xl text-light-contrast max-w-3xl mx-auto fade-in-up">
                     Legal & Compliance Support for Open-Ended Exempt Private Funds across key global jurisdictions.
                 </p>
             </div>
@@ -337,78 +353,78 @@
             </div>
 
             <!-- Tab Content -->
-            <div class="mt-4">
+            <div class="mt-4 fade-in-up">
                 <!-- DIFC Content -->
-                <div id="DIFC" class="tab-content active color-secondary-dark p-6 rounded-lg">
-                    <h3 class="text-xl font-bold color-accent mb-4">Dubai International Financial Centre (DIFC)</h3>
-                    <p class="text-gray-400 mb-4">Metida Group has a strong partner network and representatives working with clients in the DIFC.</p>
-                    <table class="min-w-full divide-y divide-[#394508] text-gray-400">
-                        <tbody class="divide-y divide-[#394508]">
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Governing Law</td><td class="py-2">English Common Law</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Regulator</td><td class="py-2">Dubai Financial Services Authority (DFSA)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Taxation</td><td class="py-2 text-red-400">0% Corporate Tax (No VAT for funds)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Fund Type</td><td class="py-2">Exempt Fund, Qualified Investor Fund (QIF)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Metida Presence</td><td class="py-2 text-[#AEF250] font-bold">Partner Network & Representatives</td></tr>
+                <div id="DIFC" class="tab-content active bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold color-accent-dark mb-4">Dubai International Financial Centre (DIFC)</h3>
+                    <p class="text-light-contrast mb-4">Metida Group has a strong partner network and representatives working with clients in the DIFC.</p>
+                    <table class="min-w-full divide-y divide-gray-300 text-light-contrast">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Governing Law</td><td class="py-2">English Common Law</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Regulator</td><td class="py-2">Dubai Financial Services Authority (DFSA)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Taxation</td><td class="py-2 text-red-600 font-bold">0% Corporate Tax (No VAT for funds)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Fund Type</td><td class="py-2">Exempt Fund, Qualified Investor Fund (QIF)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Metida Presence</td><td class="py-2 text-[#093411] font-bold">Partner Network & Representatives</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- LABUAN IBFC Content -->
-                <div id="LABUAN" class="tab-content color-secondary-dark p-6 rounded-lg">
-                    <h3 class="text-xl font-bold color-accent mb-4">Labuan IBFC (The International Business and Financial Centre, Malaysia)</h3>
-                    <p class="text-gray-400 mb-4">Metida Group works closely with partners and has representatives working with clients in Labuan IBFC.</p>
-                    <table class="min-w-full divide-y divide-[#394508] text-gray-400">
-                        <tbody class="divide-y divide-[#394508]">
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Governing Law</td><td class="py-2">Malaysian Law, English Common Law principles</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Regulator</td><td class="py-2">Labuan Financial Services Authority (Labuan FSA)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Taxation</td><td class="py-2 text-green-400">0% or 3% Corporate Tax (Tax exemption available)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Fund Type</td><td class="py-2">Private Fund, Public Fund, Protected Cell Company (PCC)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Metida Presence</td><td class="py-2 text-[#AEF250] font-bold">Partner Network & Representatives</td></tr>
+                <div id="LABUAN" class="tab-content bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold color-accent-dark mb-4">Labuan IBFC (The International Business and Financial Centre, Malaysia)</h3>
+                    <p class="text-light-contrast mb-4">Metida Group works closely with partners and has representatives working with clients in Labuan IBFC.</p>
+                    <table class="min-w-full divide-y divide-gray-300 text-light-contrast">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Governing Law</td><td class="py-2">Malaysian Law, English Common Law principles</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Regulator</td><td class="py-2">Labuan Financial Services Authority (Labuan FSA)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Taxation</td><td class="py-2 text-green-600 font-bold">0% or 3% Corporate Tax (Tax exemption available)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Fund Type</td><td class="py-2">Private Fund, Public Fund, Protected Cell Company (PCC)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Metida Presence</td><td class="py-2 text-[#093411] font-bold">Partner Network & Representatives</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- AIFC Content -->
-                <div id="AIFC" class="tab-content color-secondary-dark p-6 rounded-lg">
-                    <h3 class="text-xl font-bold color-accent mb-4">Astana International Financial Centre (AIFC)</h3>
-                    <p class="text-gray-400 mb-4">Metida Group is headquartered and licensed in the AIFC. We provide direct legal support for fund establishment. (Metida as well)</p>
-                    <table class="min-w-full divide-y divide-[#394508] text-gray-400">
-                        <tbody class="divide-y divide-[#394508]">
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Governing Law</td><td class="py-2">AIFC Acts (based on English Common Law)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Regulator</td><td class="py-2">Astana Financial Services Authority (AFSA)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Taxation</td><td class="py-2 text-green-400">0% Corporate Tax for 50 years (Tax exemption available)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Fund Type</td><td class="py-2">Private Fund, Public Fund, Hedge Fund, Islamic Fund</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Metida Presence</td><td class="py-2 text-[#AEF250] font-bold">Licensed & Headquartered (Metida as well)</td></tr>
+                <div id="AIFC" class="tab-content bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold color-accent-dark mb-4">Astana International Financial Centre (AIFC)</h3>
+                    <p class="text-light-contrast mb-4">Metida Group is headquartered and licensed in the AIFC. We provide direct legal support for fund establishment. (Metida as well)</p>
+                    <table class="min-w-full divide-y divide-gray-300 text-light-contrast">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Governing Law</td><td class="py-2">AIFC Acts (based on English Common Law)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Regulator</td><td class="py-2">Astana Financial Services Authority (AFSA)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Taxation</td><td class="py-2 text-green-600 font-bold">0% Corporate Tax for 50 years (Tax exemption available)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Fund Type</td><td class="py-2">Private Fund, Public Fund, Hedge Fund, Islamic Fund</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Metida Presence</td><td class="py-2 text-[#093411] font-bold">Licensed & Headquartered (Metida as well)</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- MAS Content -->
-                <div id="MAS" class="tab-content color-secondary-dark p-6 rounded-lg">
-                    <h3 class="text-xl font-bold color-accent mb-4">Monetary Authority of Singapore (MAS)</h3>
-                    <p class="text-gray-400 mb-4">Comparison data for the Monetary Authority of Singapore.</p>
-                    <table class="min-w-full divide-y divide-[#394508] text-gray-400">
-                        <tbody class="divide-y divide-[#394508]">
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Governing Law</td><td class="py-2">Singapore Law</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Regulator</td><td class="py-2">Monetary Authority of Singapore (MAS)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Taxation</td><td class="py-2 text-yellow-400">Corporate Tax applies (Various schemes available)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Fund Type</td><td class="py-2">Variable Capital Company (VCC), Private Fund, Retail Fund</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Metida Presence</td><td class="py-2 text-gray-500 font-bold">Comparison Only</td></tr>
+                <div id="MAS" class="tab-content bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold color-accent-dark mb-4">Monetary Authority of Singapore (MAS)</h3>
+                    <p class="text-light-contrast mb-4">Comparison data for the Monetary Authority of Singapore.</p>
+                    <table class="min-w-full divide-y divide-gray-300 text-light-contrast">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Governing Law</td><td class="py-2">Singapore Law</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Regulator</td><td class="py-2">Monetary Authority of Singapore (MAS)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Taxation</td><td class="py-2 text-yellow-600 font-bold">Corporate Tax applies (Various schemes available)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Fund Type</td><td class="py-2">Variable Capital Company (VCC), Private Fund, Retail Fund</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Metida Presence</td><td class="py-2 text-light-contrast font-bold">Comparison Only</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- QFC Content -->
-                <div id="QFC" class="tab-content color-secondary-dark p-6 rounded-lg">
-                    <h3 class="text-xl font-bold color-accent mb-4">The Qatar Financial Centre (QFC)</h3>
-                    <p class="text-gray-400 mb-4">Comparison data for the Qatar Financial Centre.</p>
-                    <table class="min-w-full divide-y divide-[#394508] text-gray-400">
-                        <tbody class="divide-y divide-[#394508]">
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Governing Law</td><td class="py-2">QFC Regulations</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Regulator</td><td class="py-2">Qatar Financial Centre Regulatory Authority (QFCRA)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Taxation</td><td class="py-2 text-red-400">0% Corporate Tax (Subject to conditions)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Fund Type</td><td class="py-2">Exempt Fund, Qualified Investor Fund (QIF)</td></tr>
-                            <tr><td class="py-2 font-semibold color-text-light w-1/3">Metida Presence</td><td class="py-2 text-gray-500 font-bold">Comparison Only</td></tr>
+                <div id="QFC" class="tab-content bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold color-accent-dark mb-4">The Qatar Financial Centre (QFC)</h3>
+                    <p class="text-light-contrast mb-4">Comparison data for the Qatar Financial Centre.</p>
+                    <table class="min-w-full divide-y divide-gray-300 text-light-contrast">
+                        <tbody class="divide-y divide-gray-300">
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Governing Law</td><td class="py-2">QFC Regulations</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Regulator</td><td class="py-2">Qatar Financial Centre Regulatory Authority (QFCRA)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Taxation</td><td class="py-2 text-red-600 font-bold">0% Corporate Tax (Subject to conditions)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Fund Type</td><td class="py-2">Exempt Fund, Qualified Investor Fund (QIF)</td></tr>
+                            <tr><td class="py-2 font-semibold text-dark-contrast w-1/3">Metida Presence</td><td class="py-2 text-light-contrast font-bold">Comparison Only</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -416,19 +432,19 @@
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team Section - Dark Green -->
     <section id="team" class="py-12 sm:py-16 color-secondary-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">Our Legal Team</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4 fade-in-up">Our Legal Team</h2>
+                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto fade-in-up">
                     Meet our experienced legal professionals who bring decades of expertise in international law, corporate transactions, and regulatory compliance.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-                <!-- Timur Shotbakov -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 1 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="users" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -439,8 +455,8 @@
                     </p>
                 </div>
                 
-                <!-- Bolat Asylkhanov -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 2 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="briefcase" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -451,8 +467,8 @@
                     </p>
                 </div>
 
-                <!-- Galymzhan Adilzhanov -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 3 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="shield" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -463,8 +479,8 @@
                     </p>
                 </div>
 
-                <!-- Zhanna Abeuova -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 4 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="calculator" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -475,8 +491,8 @@
                     </p>
                 </div>
                 
-                <!-- S Ahdilkar -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 5 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="banknote" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -487,8 +503,8 @@
                     </p>
                 </div>
                 
-                <!-- Aliya Konraubayeva -->
-                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow">
+                <!-- Team Member 6 -->
+                <div class="color-primary-dark border border-[#287E28] rounded-lg p-6 text-center hover:shadow-xl transition-shadow fade-in-up">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#093411] rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="scale" class="h-10 w-10 sm:h-12 sm:w-12 color-accent"></i>
                     </div>
@@ -502,53 +518,53 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section id="partners" class="py-12 sm:py-16 color-primary-dark">
+    <!-- Partners Section - Light Gray Background -->
+    <section id="partners" class="py-12 sm:py-16 bg-light-gray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">OUR PARTNERS</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold text-dark-contrast mb-3 sm:mb-4 fade-in-up">OUR PARTNERS</h2>
+                <p class="text-lg sm:text-xl text-light-contrast max-w-3xl mx-auto fade-in-up">
                     We collaborate with trusted international partners to provide seamless, top-tier business planning, tax advisory, and audit services.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Silverknows -->
-                <div class="color-secondary-dark p-6 rounded-lg border border-[#287E28]">
-                    <h3 class="text-xl font-semibold color-accent mb-2">Silverknows</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 fade-in-up">
+                    <h3 class="text-xl font-semibold color-accent-dark mb-2">Silverknows</h3>
+                    <p class="text-light-contrast text-sm mb-4">
                         Trusted financial services company regulated by the Labuan Financial Services Authority. Specializes in business incorporation, trust services, M&A, and financial advisory.
                     </p>
-                    <p class="text-[#AEF250] text-xs font-medium">Focus: Labuan IBFC, Financial Advisory, Trust Services</p>
+                    <p class="text-[#093411] text-xs font-medium">Focus: Labuan IBFC, Financial Advisory, Trust Services</p>
                 </div>
                 <!-- DBA Firm -->
-                <div class="color-secondary-dark p-6 rounded-lg border border-[#287E28]">
-                    <h3 class="text-xl font-semibold color-accent mb-2">DBA Firm</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 fade-in-up">
+                    <h3 class="text-xl font-semibold color-accent-dark mb-2">DBA Firm</h3>
+                    <p class="text-light-contrast text-sm mb-4">
                         Leading legal and business consultancy based in the UAE with over 20 years of experience. Specializes in corporate, commercial law, real estate, and dispute resolution.
                     </p>
-                    <p class="text-[#AEF250] text-xs font-medium">Focus: UAE, Corporate/Commercial Law, Dispute Resolution</p>
+                    <p class="text-[#093411] text-xs font-medium">Focus: UAE, Corporate/Commercial Law, Dispute Resolution</p>
                 </div>
                 <!-- San Partners -->
-                <div class="color-secondary-dark p-6 rounded-lg border border-[#287E28]">
-                    <h3 class="text-xl font-semibold color-accent mb-2">San Partners</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 fade-in-up">
+                    <h3 class="text-xl font-semibold color-accent-dark mb-2">San Partners</h3>
+                    <p class="text-light-contrast text-sm mb-4">
                         Brings bold thinking in tax, finance, accounting, and legal consulting, with industries ranging from mining to health to subsoil to international development.
                     </p>
-                    <p class="text-[#AEF250] text-xs font-medium">Focus: Tax, Finance, Accounting, Mining, Consulting</p>
+                    <p class="text-[#093411] text-xs font-medium">Focus: Tax, Finance, Accounting, Mining, Consulting</p>
                 </div>
                 <!-- Europlaw Group -->
-                <div class="color-secondary-dark p-6 rounded-lg border border-[#287E28]">
-                    <h3 class="text-xl font-semibold color-accent mb-2">Europlaw Group Incorporated</h3>
-                    <p class="text-gray-400 text-sm mb-4">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 fade-in-up">
+                    <h3 class="text-xl font-semibold color-accent-dark mb-2">Europlaw Group Incorporated</h3>
+                    <p class="text-light-contrast text-sm mb-4">
                         Established in different countries and a member of the INTERNATIONAL ASSOCIATION OF LAWYERS (UIA) and the GLOBAL LAW EXPERTS.
                     </p>
-                    <p class="text-[#AEF250] text-xs font-medium">Focus: International Legal Network, Global Reach</p>
+                    <p class="text-[#093411] text-xs font-medium">Focus: International Legal Network, Global Reach</p>
                 </div>
                 <!-- Other Services -->
-                <div class="color-secondary-dark p-6 rounded-lg border border-[#287E28] sm:col-span-2 lg:col-span-1">
-                    <h3 class="text-xl font-semibold color-accent mb-2">Additional Services</h3>
-                    <ul class="text-gray-400 text-sm space-y-1">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 sm:col-span-2 lg:col-span-1 fade-in-up">
+                    <h3 class="text-xl font-semibold color-accent-dark mb-2">Additional Services</h3>
+                    <ul class="text-light-contrast text-sm space-y-1">
                         <li>ISA audits, reviews and related services</li>
                         <li>IFRS accounting advisory services</li>
                         <li>Financial due diligence</li>
@@ -561,36 +577,36 @@
         </div>
     </section>
 
-    <!-- Contact Section with Form -->
+    <!-- Contact Section with Form - Dark Green -->
     <section id="contact" class="py-12 sm:py-16 color-secondary-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 sm:mb-12">
-                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4">Contact Our Legal Team</h2>
-                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold color-accent mb-3 sm:mb-4 fade-in-up">Contact Our Legal Team</h2>
+                <p class="text-lg sm:text-xl color-text-light max-w-3xl mx-auto fade-in-up">
                     Get in touch with our AIFC licensed lawyers for expert legal advice. Book a free consultation today!
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <!-- Contact Form -->
-                <div class="bg-[#093411] p-6 sm:p-8 rounded-lg shadow-2xl">
+                <div class="bg-[#093411] p-6 sm:p-8 rounded-lg shadow-2xl fade-in-up">
                     <h3 class="text-xl font-semibold color-accent mb-6">Request a Consultation</h3>
                     <form id="contactForm" class="space-y-4">
                         <div>
-                            <label for="name" class="block text-sm font-medium color-text-light mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-white" />
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-gray-400" />
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium color-text-light mb-1">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-white" />
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-gray-400" />
                         </div>
                         <div>
-                            <label for="phone" class="block text-sm font-medium color-text-light mb-1">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-white" />
+                            <label for="phone" class="block text-sm font-medium text-gray-400 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-gray-400" />
                         </div>
                         <div>
-                            <label for="service" class="block text-sm font-medium color-text-light mb-1">Legal Service Needed</label>
-                            <select id="service" name="service" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-white">
+                            <label for="service" class="block text-sm font-medium text-gray-400 mb-1">Legal Service Needed</label>
+                            <select id="service" name="service" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-gray-400">
                                 <option value="" disabled selected>Select a service...</option>
                                 <option value="AIFC Company Registration">AIFC Company Registration</option>
                                 <option value="Investment Fund Setup">Investment Fund Setup</option>
@@ -601,8 +617,8 @@
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium color-text-light mb-1">Comments</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-white"></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Comments</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-[#287E28] rounded-lg focus:ring-2 focus:ring-[#AEF250] focus:border-transparent bg-[#093411] text-gray-400"></textarea>
                         </div>
                         <button type="submit" class="w-full color-button py-3 px-4 rounded-lg transition-colors font-semibold flex items-center justify-center">
                             <i data-lucide="mail" class="mr-2 h-5 w-5 color-accent-dark"></i>
@@ -613,21 +629,23 @@
                 </div>
 
                 <!-- Contact Info -->
-                <div class="color-primary-dark p-6 sm:p-8 rounded-lg shadow-2xl">
+                <div class="color-primary-dark p-6 sm:p-8 rounded-lg shadow-2xl fade-in-up">
                     <h3 class="text-xl font-semibold color-accent mb-6">Direct Contact Information</h3>
                     <div class="space-y-6">
+                        <!-- Address -->
                         <div class="flex items-start space-x-3">
                             <i data-lucide="map-pin" class="h-6 w-6 color-accent mt-1" />
                             <div>
                                 <h4 class="font-medium color-text-light">AIFC Office Address</h4>
                                 <p class="text-gray-400 text-sm">
-                                    Mangilik Yel Avenue, Building 55/22<br />
-                                    Block "C" 4.3, Office #245<br />
+                                    Mangilik Yel Avenue,<br/>
+                                    Building 55/22, Block "C" 4.3, Office #245<br />
                                     Astana, Republic of Kazakhstan
                                 </p>
                             </div>
                         </div>
 
+                        <!-- Phone -->
                         <div class="flex items-start space-x-3">
                             <i data-lucide="phone" class="h-6 w-6 color-accent mt-1" />
                             <div>
@@ -636,6 +654,7 @@
                             </div>
                         </div>
 
+                        <!-- Email -->
                         <div class="flex items-start space-x-3">
                             <i data-lucide="mail" class="h-6 w-6 color-accent mt-1" />
                             <div>
@@ -644,6 +663,7 @@
                             </div>
                         </div>
 
+                        <!-- License -->
                         <div class="flex items-start space-x-3">
                             <i data-lucide="award" class="h-6 w-6 color-accent mt-1" />
                             <div>
@@ -720,15 +740,15 @@
         // ========================================
         // MOUSE FLOW EFFECT SCRIPT
         // ========================================
-        const bodyContainer = document.getElementById('body-container');
-        const dotsContainer = document.getElementById('mouse-flow-dots');
+        const bodyContainer = document.getElementById("body-container");
+        const dotsContainer = document.getElementById("mouse-flow-dots");
         const numDots = 5; // Number of dots to follow the cursor
         const dots = [];
 
         // Create dots
         for (let i = 0; i < numDots; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('mouse-flow-dot');
+            const dot = document.createElement("div");
+            dot.classList.add("mouse-flow-dot");
             dot.style.transitionDelay = `${i * 0.05}s`;
             dotsContainer.appendChild(dot);
             dots.push(dot);
@@ -738,18 +758,18 @@
         let mouseY = 0;
 
         // Mouse move listener
-        bodyContainer.addEventListener('mousemove', (e) => {
+        bodyContainer.addEventListener("mousemove", (e) => {
             mouseX = e.clientX + window.scrollX;
             mouseY = e.clientY + window.scrollY;
             
             // Check if the cursor is over a non-empty, non-interactive area
             const target = e.target;
-            const isInteractive = target.tagName === 'A' || target.tagName === 'BUTTON' || target.tagName === 'INPUT' || target.tagName === 'SELECT' || target.tagName === 'TEXTAREA' || target.closest('form') || target.closest('nav') || target.closest('footer');
+            const isInteractive = target.tagName === "A" || target.tagName === "BUTTON" || target.tagName === "INPUT" || target.tagName === "SELECT" || target.tagName === "TEXTAREA" || target.closest("form") || target.closest("nav") || target.closest("footer");
             
             if (!isInteractive) {
-                dots.forEach(dot => dot.classList.add('active'));
+                dots.forEach(dot => dot.classList.add("active"));
             } else {
-                dots.forEach(dot => dot.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove("active"));
             }
         });
 
@@ -784,20 +804,20 @@
         // ========================================
         // CONTACT FORM SCRIPT (Client-side Mailto)
         // ========================================
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            const formMessage = document.getElementById('formMessage');
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const service = document.getElementById("service").value;
+            const message = document.getElementById("message").value;
+            const formMessage = document.getElementById("formMessage");
 
             if (!name || !email || !phone || !service || !message) {
-                formMessage.textContent = 'Please fill in all fields.';
-                formMessage.style.color = '#dc2626'; // Red
-                formMessage.style.display = 'block';
+                formMessage.textContent = "Please fill in all fields.";
+                formMessage.style.color = "#dc2626"; // Red
+                formMessage.style.display = "block";
                 return;
             }
 
@@ -821,37 +841,37 @@ Please reply to the client's email: ${email}
             window.location.href = mailtoLink;
 
             // Provide feedback to the user
-            formMessage.textContent = 'Your email client should open shortly. Thank you for your inquiry!';
-            formMessage.style.color = '#AEF250'; // Bright Green
-            formMessage.style.display = 'block';
+            formMessage.textContent = "Your email client should open shortly. Thank you for your inquiry!";
+            formMessage.style.color = "#AEF250"; // Bright Green
+            formMessage.style.display = "block";
 
             // Clear the form after a short delay
             setTimeout(() => {
-                document.getElementById('contactForm').reset();
-                formMessage.style.display = 'none';
+                document.getElementById("contactForm").reset();
+                formMessage.style.display = "none";
             }, 5000);
         });
 
         // ========================================
         // INTERACTIVE FUND COMPARISON TAB SCRIPT
         // ========================================
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
+        document.querySelectorAll(".tab-button").forEach(button => {
+            button.addEventListener("click", function() {
+                const tabId = this.getAttribute("data-tab");
 
                 // Deactivate all buttons and content
-                document.querySelectorAll('.tab-button').forEach(btn => {
-                    btn.classList.remove('color-button', 'color-accent-dark');
-                    btn.classList.add('text-gray-400');
+                document.querySelectorAll(".tab-button").forEach(btn => {
+                    btn.classList.remove("color-button", "color-accent-dark");
+                    btn.classList.add("text-gray-400");
                 });
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
+                document.querySelectorAll(".tab-content").forEach(content => {
+                    content.classList.remove("active");
                 });
 
                 // Activate the clicked button and corresponding content
-                this.classList.add('color-button', 'color-accent-dark');
-                this.classList.remove('text-gray-400');
-                document.getElementById(tabId).classList.add('active');
+                this.classList.add("color-button", "color-accent-dark");
+                this.classList.remove("text-gray-400");
+                document.getElementById(tabId).classList.add("active");
             });
         });
         
@@ -863,12 +883,31 @@ Please reply to the client's email: ${email}
         // ACTIVE BUTTONS/LINKS (Scroll to Section)
         // ========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener("click", function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
                 });
             });
+        });
+
+        // ========================================
+        // SCROLL ANIMATION OBSERVER
+        // ========================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: "0px",
+            threshold: 0.1
+        });
+
+        document.querySelectorAll(".fade-in-up").forEach(element => {
+            observer.observe(element);
         });
     </script>
 
